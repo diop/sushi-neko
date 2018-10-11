@@ -28,6 +28,8 @@ class GameScene: SKScene {
         addTowerPiece(side: .none)
         addTowerPiece(side: .right)
         
+        // Randomize tower to 10 outside of screen
+        addRandomPieces(total: 10)
     }
     
     func addTowerPiece(side: Side) {
@@ -59,4 +61,26 @@ class GameScene: SKScene {
         sushiTower.append(newPiece)
     }
     
+    func addRandomPieces(total: Int) {
+        // Add random sushi pieces to the sushi tower
+        
+        for _ in 1...total {
+            // Need to access last piece property
+            let lastPiece = sushiTower.last!
+            
+            // Impossible tower check
+            if lastPiece.side != .none {
+                addTowerPiece(side: .none)
+            } else {
+                let rand = arc4random_uniform(100)
+                if rand < 45 {
+                    addTowerPiece(side: .left)
+                } else if rand < 90 {
+                    addTowerPiece(side: .right)
+                } else {
+                    addTowerPiece(side: .none)
+                }
+            }
+        }
+    }
 }
