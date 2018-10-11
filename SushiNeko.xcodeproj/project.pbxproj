@@ -15,6 +15,11 @@
 		114B4F8B2166B8280025A509 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114B4F892166B8280025A509 /* Main.storyboard */; };
 		114B4F8D2166B8280025A509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 114B4F8C2166B8280025A509 /* Assets.xcassets */; };
 		114B4F902166B8280025A509 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114B4F8E2166B8280025A509 /* LaunchScreen.storyboard */; };
+		1182158E216FBEA800FC0109 /* assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1182158D216FBEA800FC0109 /* assets.atlas */; };
+		11821591216FBEBC00FC0109 /* sfx_swipe.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11821590216FBEBC00FC0109 /* sfx_swipe.caf */; };
+		11821593216FBEF300FC0109 /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11821592216FBEF300FC0109 /* MSButtonNode.swift */; };
+		11821595216FC34A00FC0109 /* SushiPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11821594216FC34A00FC0109 /* SushiPiece.swift */; };
+		11DE0B82216FE4F900A430A6 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DE0B81216FE4F900A430A6 /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		114B4F8C2166B8280025A509 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		114B4F8F2166B8280025A509 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		114B4F912166B8280025A509 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1182158D216FBEA800FC0109 /* assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = assets.atlas; sourceTree = "<group>"; };
+		11821590216FBEBC00FC0109 /* sfx_swipe.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_swipe.caf; sourceTree = "<group>"; };
+		11821592216FBEF300FC0109 /* MSButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
+		11821594216FC34A00FC0109 /* SushiPiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SushiPiece.swift; sourceTree = "<group>"; };
+		11DE0B81216FE4F900A430A6 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,15 +72,28 @@
 			children = (
 				114B4F7F2166B8280025A509 /* AppDelegate.swift */,
 				114B4F812166B8280025A509 /* GameScene.sks */,
+				11DE0B81216FE4F900A430A6 /* Character.swift */,
+				11821592216FBEF300FC0109 /* MSButtonNode.swift */,
 				114B4F832166B8280025A509 /* Actions.sks */,
 				114B4F852166B8280025A509 /* GameScene.swift */,
+				11821594216FC34A00FC0109 /* SushiPiece.swift */,
 				114B4F872166B8280025A509 /* GameViewController.swift */,
 				114B4F892166B8280025A509 /* Main.storyboard */,
 				114B4F8C2166B8280025A509 /* Assets.xcassets */,
 				114B4F8E2166B8280025A509 /* LaunchScreen.storyboard */,
 				114B4F912166B8280025A509 /* Info.plist */,
+				1182158F216FBEBC00FC0109 /* SFX */,
+				1182158D216FBEA800FC0109 /* assets.atlas */,
 			);
 			path = SushiNeko;
+			sourceTree = "<group>";
+		};
+		1182158F216FBEBC00FC0109 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				11821590216FBEBC00FC0109 /* sfx_swipe.caf */,
+			);
+			path = SFX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,8 +156,10 @@
 			files = (
 				114B4F8B2166B8280025A509 /* Main.storyboard in Resources */,
 				114B4F822166B8280025A509 /* GameScene.sks in Resources */,
+				1182158E216FBEA800FC0109 /* assets.atlas in Resources */,
 				114B4F8D2166B8280025A509 /* Assets.xcassets in Resources */,
 				114B4F902166B8280025A509 /* LaunchScreen.storyboard in Resources */,
+				11821591216FBEBC00FC0109 /* sfx_swipe.caf in Resources */,
 				114B4F842166B8280025A509 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +174,9 @@
 				114B4F862166B8280025A509 /* GameScene.swift in Sources */,
 				114B4F882166B8280025A509 /* GameViewController.swift in Sources */,
 				114B4F802166B8280025A509 /* AppDelegate.swift in Sources */,
+				11DE0B82216FE4F900A430A6 /* Character.swift in Sources */,
+				11821595216FC34A00FC0109 /* SushiPiece.swift in Sources */,
+				11821593216FBEF300FC0109 /* MSButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
