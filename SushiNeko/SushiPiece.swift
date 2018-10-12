@@ -27,7 +27,7 @@ class SushiPiece: SKSpriteNode {
         }
     }
     
-    override init(texture: SKTexture? , color: UIColor, size: CGSize ) {
+    override init(texture: SKTexture? , color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
     }
     
@@ -36,8 +36,8 @@ class SushiPiece: SKSpriteNode {
     }
     
     func connectChopsticks() {
-        rightChopstick = childNode(withName: "rightChopstick") as! SKSpriteNode
-        leftChopstick = childNode(withName: "leftChopstick") as! SKSpriteNode
+        rightChopstick = childNode(withName: "rightChopstick") as? SKSpriteNode
+        leftChopstick = childNode(withName: "leftChopstick") as? SKSpriteNode
         
         /* Set the default side */
         side = .none

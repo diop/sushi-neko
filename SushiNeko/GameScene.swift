@@ -14,8 +14,8 @@ enum Side {
 
 class GameScene: SKScene {
     /* Game objects */
-    var sushiBasePiece: SushiPiece!
-    var character: Character!
+    var sushiBasePiece : SushiPiece!
+    var character : Character!
     var sushiTower: [SushiPiece] = []
     
     override func didMove(to view: SKView) {
@@ -81,6 +81,16 @@ class GameScene: SKScene {
                     addTowerPiece(side: .none)
                 }
             }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        if location.x > size.width / 2 {
+            character.side = .right
+        } else {
+            character.side = .left
         }
     }
 }
