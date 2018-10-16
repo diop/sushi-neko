@@ -19,6 +19,7 @@
 		11821591216FBEBC00FC0109 /* sfx_swipe.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11821590216FBEBC00FC0109 /* sfx_swipe.caf */; };
 		11821593216FBEF300FC0109 /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11821592216FBEF300FC0109 /* MSButtonNode.swift */; };
 		11821595216FC34A00FC0109 /* SushiPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11821594216FC34A00FC0109 /* SushiPiece.swift */; };
+		11C3CCDA2175952500FED416 /* AnimationActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 11C3CCD92175952500FED416 /* AnimationActions.sks */; };
 		11DE0B82216FE4F900A430A6 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DE0B81216FE4F900A430A6 /* Character.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		11821590216FBEBC00FC0109 /* sfx_swipe.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_swipe.caf; sourceTree = "<group>"; };
 		11821592216FBEF300FC0109 /* MSButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		11821594216FC34A00FC0109 /* SushiPiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SushiPiece.swift; sourceTree = "<group>"; };
+		11C3CCD92175952500FED416 /* AnimationActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AnimationActions.sks; sourceTree = "<group>"; };
 		11DE0B81216FE4F900A430A6 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 		114B4F7E2166B8280025A509 /* SushiNeko */ = {
 			isa = PBXGroup;
 			children = (
+				11C3CCD92175952500FED416 /* AnimationActions.sks */,
 				114B4F7F2166B8280025A509 /* AppDelegate.swift */,
 				114B4F812166B8280025A509 /* GameScene.sks */,
 				11DE0B81216FE4F900A430A6 /* Character.swift */,
@@ -158,6 +161,7 @@
 				114B4F822166B8280025A509 /* GameScene.sks in Resources */,
 				1182158E216FBEA800FC0109 /* assets.atlas in Resources */,
 				114B4F8D2166B8280025A509 /* Assets.xcassets in Resources */,
+				11C3CCDA2175952500FED416 /* AnimationActions.sks in Resources */,
 				114B4F902166B8280025A509 /* LaunchScreen.storyboard in Resources */,
 				11821591216FBEBC00FC0109 /* sfx_swipe.caf in Resources */,
 				114B4F842166B8280025A509 /* Actions.sks in Resources */,

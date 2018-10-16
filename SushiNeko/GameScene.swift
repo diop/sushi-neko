@@ -93,5 +93,12 @@ class GameScene: SKScene {
         } else {
             character.side = .left
         }
+        
+        // Remove from sushi tower array
+        if let firstPiece = sushiTower.first as SushiPiece? {
+            sushiTower.removeFirst()
+            firstPiece.removeFromParent()
+            addRandomPieces(total: 1)
+        }
     }
 }

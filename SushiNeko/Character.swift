@@ -9,7 +9,7 @@ import SpriteKit
 
 class Character: SKSpriteNode {
     // Character side
-    
+    let punch = SKAction(named: "Punch")!
     var side: Side = .left {
         didSet {
             if side == .left {
@@ -21,6 +21,9 @@ class Character: SKSpriteNode {
                 position.x = 252
                 print("Tapped right")
             }
+            // Run the punch action
+            print(punch)
+            run(punch)
         }
     }
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
