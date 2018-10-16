@@ -87,6 +87,7 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let location = touch.location(in: self)
+        print(character)
         if location.x > size.width / 2 {
             character.side = .right
         } else {
