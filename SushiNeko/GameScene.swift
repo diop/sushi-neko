@@ -23,12 +23,22 @@ class GameScene: SKScene {
     var sushiTower: [SushiPiece] = []
     var state: GameState = .title
     var playButton: MSButtonNode!
+    var healthBar: SKSpriteNode!
+    var health: CGFloat = 1.0 {
+        didSet {
+            // Scale health bar between 0.0 -> 1.0 eg 0 -> 100%
+            // Cap Helth
+            if health > 0 { health = 1.0 }
+            healthBar.xScale = health
+        }
+    }
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         sushiBasePiece = childNode(withName: "sushiBasePiece") as? SushiPiece
         character = childNode(withName: "character") as? Character
         playButton = childNode(withName: "playButton") as? MSButtonNode
+        healthBar = childNode(withName: "healthBar") as? SKSpriteNode
         sushiBasePiece.connectChopsticks()
         
         // Manually stack the start of the tower
@@ -49,7 +59,18 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        // Called before each frame is rendered
+        if state != .playing { return }
+        
+        // Decrease health
+        health -= 0.01
+        // Has the player ran out of health?
+        if health < 0 {
+            gameOver()
+        }
+        
         moveTowerDown()
+        
     }
     
     func addTowerPiece(side: Side) {
@@ -129,6 +150,9 @@ class GameScene: SKScene {
         if state == .gameOver || state == .title { return }
         // Game begins in first touch
         if state == .ready { state = .playing }
+        
+        // Increment Health
+        health += 0.1
     }
     
     func moveTowerDown() {
