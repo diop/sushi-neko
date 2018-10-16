@@ -12,16 +12,23 @@ enum Side {
     case left, right, none
 }
 
+enum GameState {
+    case title, ready, playing, gameOver
+}
+
 class GameScene: SKScene {
     /* Game objects */
     var sushiBasePiece : SushiPiece!
     var character : Character!
     var sushiTower: [SushiPiece] = []
+    var state: GameState = .title
+    var playButton: MSButtonNode!
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         sushiBasePiece = childNode(withName: "sushiBasePiece") as? SushiPiece
         character = childNode(withName: "character") as? Character
+        playButton = childNode(withName: "playButton") as? MSButtonNode
         sushiBasePiece.connectChopsticks()
         
         // Manually stack the start of the tower
@@ -30,6 +37,19 @@ class GameScene: SKScene {
         
         // Randomize tower to 10 outside of screen
         addRandomPieces(total: 10)
+        
+        // Setup play button selection handler
+        self.state = .ready
+        
+        playButton.selectedHandler = {
+            // Start game
+            self.state = .ready
+        }
+        
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        moveTowerDown()
     }
     
     func addTowerPiece(side: Side) {
@@ -96,9 +116,59 @@ class GameScene: SKScene {
         
         // Remove from sushi tower array
         if let firstPiece = sushiTower.first as SushiPiece? {
+            if character.side == firstPiece.side {
+                gameOver()
+                return
+            }
             sushiTower.removeFirst()
-            firstPiece.removeFromParent()
+            firstPiece.flip(character.side)
             addRandomPieces(total: 1)
+        }
+        
+        // Game not ready
+        if state == .gameOver || state == .title { return }
+        // Game begins in first touch
+        if state == .ready { state = .playing }
+    }
+    
+    func moveTowerDown() {
+        var n: CGFloat = 0
+        for piece in sushiTower {
+            let y = (n * 55) + 215
+            piece.position.y -= (piece.position.y - y) * 0.5
+            n += 1
+        }
+    }
+    
+    func gameOver() {
+        state = .gameOver
+        
+        // Create turned SKAction
+        let turnRed = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.50)
+        
+        // Turn all the sushi pieces red
+        sushiBasePiece.run(turnRed)
+        for sushiPiece in sushiTower {
+            sushiPiece.run(turnRed)
+        }
+        
+        character.run(turnRed)
+        
+        // Change the button selection handler
+        playButton.selectedHandler = {
+            // Grad reference to the SpriteKit view
+            let skView = self.view as SKView?
+            
+            // Load game scene
+            guard let scene = GameScene(fileNamed: "GameScene") as GameScene? else {
+                return
+            }
+            
+            // Ensure correct aspect mode
+            scene.scaleMode = .aspectFill
+            
+            // Restart GameScene
+            skView?.presentScene(scene)
         }
     }
 }
