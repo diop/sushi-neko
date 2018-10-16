@@ -24,12 +24,18 @@ class GameScene: SKScene {
     var state: GameState = .title
     var playButton: MSButtonNode!
     var healthBar: SKSpriteNode!
+    var scoreLabel: SKLabelNode!
     var health: CGFloat = 1.0 {
         didSet {
             // Scale health bar between 0.0 -> 1.0 eg 0 -> 100%
             // Cap Helth
             if health > 0 { health = 1.0 }
             healthBar.xScale = health
+        }
+    }
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.text = String(score)
         }
     }
     
@@ -39,6 +45,7 @@ class GameScene: SKScene {
         character = childNode(withName: "character") as? Character
         playButton = childNode(withName: "playButton") as? MSButtonNode
         healthBar = childNode(withName: "healthBar") as? SKSpriteNode
+        scoreLabel = childNode(withName: "scoreLabel") as? SKLabelNode
         sushiBasePiece.connectChopsticks()
         
         // Manually stack the start of the tower
@@ -153,6 +160,7 @@ class GameScene: SKScene {
         
         // Increment Health
         health += 0.1
+        score += 1
     }
     
     func moveTowerDown() {
